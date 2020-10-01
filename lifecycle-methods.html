@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Uso em produção-->
+    <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
+
+    <!-- Uso em desenvolvimento-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Ciclo  de vida do método</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+ 
+        class App extends React.Component {         
+            constructor(){
+                super()     
+
+                this.state = {
+                    nome: "Alice"
+                }     
+                console.log('constructor');
+            }
+
+            componentDidMount() {
+                //call api
+                console.log('montado');
+            }
+
+           alterar = () => {
+                console.log('alterar');
+                this.setState({nome: 'Aline'})
+            }
+
+            render(){   
+                console.log('render');
+               return (
+                   <div>
+                        Olá {this.state.nome}
+                        <div>
+                            <button onClick={this.alterar}> Alterar</button>
+                        </div>
+                   </div>
+              )
+            }
+        }
+
+        ReactDOM.render( <App/>, document.getElementById('root'))   
+
+    </script>
+</body>
+</html>

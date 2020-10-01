@@ -1,0 +1,13 @@
+/* Inline Styling em Component */
+.cor_texto {
+    color: red;
+}
+
+/* Css in react 2*/
+.cor-vermelho{
+    color: red;
+}
+
+.tamanho {
+    font-size: 2em;
+}

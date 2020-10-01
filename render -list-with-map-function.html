@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Uso em produção-->
+    <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
+
+    <!-- Uso em desenvolvimento-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React Básico</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component{
+
+            render(){
+                const nomes = [
+                'João',
+                'Ana',
+                'Carloss'
+                ]
+
+                const pessoas = [
+                    {
+                        nome: 'Alice',
+                        profissao: 'Programador'
+                    },
+                    {
+                        nome: 'Ana',
+                        profissao: 'Professora'
+                    },
+                    {
+                        nome: 'Carlos',
+                        profissao: 'Roberto'
+                    }
+                ]
+
+                const final = nomes.map(nome => <h3>{nome}</h3>)
+                const final2 = pessoas.map(pessoa => <h3>{pessoa.nome} exerce a profissao de {pessoa.profissao}</h3>)
+                
+                return(
+                    <div> {final2} </div>
+                )
+            }
+        }
+        
+        ReactDOM.render( <App/>, document.getElementById('root'))   
+
+        // let nomes = ['João', 'Ana', 'Carlos']
+        // let final = nomes.map( n=> 'Bom dia, ' + n )
+        // console.log(nomes)
+        // console.log(final)
+
+    </script>
+</body>
+</html>

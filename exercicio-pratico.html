@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Uso em produção-->
+    <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
+
+    <!-- Uso em desenvolvimento-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React Básico</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component{
+            render(){
+              return(
+                  <div>
+                    <h3> Exercício</h3>
+                    <hr/>
+                    <Repete nome_inicial="Aline" nome_final="Alice"/>
+                    <Repete nome_inicial="João" nome_final="Joaquim"/>
+                    <Repete nome_inicial="Carla" nome_final="Carlos"/>
+                  </div>
+              )  
+            }
+        }
+
+        class Repete extends React.Component{
+            constructor(props){
+                super(props)
+
+                this.state={
+                    nome: this.props.nome_inicial
+                }
+
+                this.cmd_click = this.cmd_click.bind(this)
+            }
+
+            cmd_click(){
+                this.setState({nome: this.props.nome_final})
+            }
+
+            render(){
+              return(
+                  <div>
+                    <p>Nome: {this.state.nome}</p>
+                    <button onClick={this.cmd_click}>Alterar</button>
+                  </div>
+              )  
+            }
+        }
+
+
+        ReactDOM.render( <App/>, document.getElementById('root'))   
+    </script>
+</body>
+</html>

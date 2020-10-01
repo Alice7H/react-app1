@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Uso em produção-->
+    <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
+
+    <!-- Uso em desenvolvimento-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Inline Styling em Component</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+            render(){
+
+                const estilo = {
+                    color: "red",
+                    backgroundColor: "yellow",
+                    padding: "20px"
+                }
+                
+                return(
+                    <div>
+                        <p className="cor_texto"> Texto do component</p>
+                        <p style={{color: "red", backgroundColor: "yellow", padding: "20px"}}> Texto do component 2</p>
+                        <p style={estilo}> Texto do component 3</p>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render( <App/>, document.getElementById('root'))   
+    </script>
+</body>
+</html>
